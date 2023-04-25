@@ -9,7 +9,7 @@ add_executable(${CMAKE_PROJECT_NAME}
         # custom files:
         test_scene.cpp
         # 3d engine:
-        )
+        engine/math/Vec2D.h engine/math/Vec2D.cpp)
 
 if(APPLE OR UNIX)
     include_directories(/usr/local/include)
