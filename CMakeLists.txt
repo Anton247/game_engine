@@ -7,9 +7,10 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
 set(CMAKE_EXE_LINKER_FLAGS "-static")
 add_executable(${CMAKE_PROJECT_NAME}
         # custom files:
-        test_scene.cpp
+        #test_scene.cpp
         # 3d engine:
-        engine/math/Vec2D.h engine/math/Vec2D.cpp)
+        engine/math/Vec2D.h engine/math/Vec2D.cpp
+        class_testing.cpp)
 
 if(APPLE OR UNIX)
     include_directories(/usr/local/include)
