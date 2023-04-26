@@ -3,7 +3,7 @@
 
 #include <array>
 
-class Vec2D {
+class Vec2D final {
     public:
         Vec2D() = default;
 
