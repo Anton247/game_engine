@@ -7,11 +7,11 @@ class Vec3D final {
     public:
         Vec3D() = default;
 
-        Vec3D(const Vec3D &vec);
+        Vec3D( const Vec3D &vec );
 
-        explicit Vec3D(double x, double y = 0.0, double z = 0.0);
+        explicit Vec3D( double x, double y = 0.0, double z = 0.0 );
 
-        Vec3D &operator=(const Vec3D &) = default;
+        Vec3D &operator=( const Vec3D & ) = default;
 
         [[nodiscard]] double x() const { return _arr_point[0]; }
         [[nodiscard]] double y() const { return _arr_point[1]; }
@@ -23,19 +23,19 @@ class Vec3D final {
         [[nodiscard]] Vec3D operator-() const;
 
         // Boolean operations
-        bool operator==(const Vec3D &vec) const;
-        bool operator!=(const Vec3D &vec) const;
+        bool operator==( const Vec3D &vec ) const;
+        bool operator!=( const Vec3D &vec ) const;
 
         // Operations with Vec4D
-        [[nodiscard]] Vec3D operator+(const Vec3D &vec) const;
-        [[nodiscard]] Vec3D operator-(const Vec3D &vec) const;
+        [[nodiscard]] Vec3D operator+( const Vec3D &vec ) const;
+        [[nodiscard]] Vec3D operator-( const Vec3D &ve ) const;
 
-        [[nodiscard]] double dot(const Vec3D &vec) const; // Returns dot product
-        [[nodiscard]] Vec3D cross(const Vec3D &vec) const; // Returns cross product
+        [[nodiscard]] double dot( const Vec3D &vec ) const; // Returns dot product
+        [[nodiscard]] Vec3D cross( const Vec3D &vec ) const; // Returns cross product
 
         // Operations with numbers
-        [[nodiscard]] Vec3D operator*(double number) const;
-        [[nodiscard]] Vec3D operator/(double number) const;
+        [[nodiscard]] Vec3D operator*( double number ) const;
+        [[nodiscard]] Vec3D operator/( double number ) const;
 
         // Other useful methods
         [[nodiscard]] double sqrAbs() const; // Returns squared vector length
@@ -50,7 +50,7 @@ private:
     static const unsigned short dimension = 3;
     std::array<double, dimension> _arr_point{};
 
-    static bool isNear(double a, double b);
+    static bool isNear( double a, double b );
 };
 
 

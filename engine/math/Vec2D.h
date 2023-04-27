@@ -39,6 +39,8 @@ class Vec2D final {
         [[nodiscard]] double abs() const; // Returns vector length
         [[nodiscard]] Vec2D normalized() const; // Returns normalized vector without changing
 
+        static Vec2D Random();
+
         static void test();
 
     private:

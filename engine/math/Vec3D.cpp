@@ -5,13 +5,13 @@
 #include "Vec3D.h"
 #include "../Consts.h"
 
-Vec3D::Vec3D(const Vec3D &vec) {
+Vec3D::Vec3D( const Vec3D &vec ) {
     _arr_point[0] = vec.x();
     _arr_point[1] = vec.y();
     _arr_point[2] = vec.z();
 }
 
-Vec3D::Vec3D(double x, double y, double z) {
+Vec3D::Vec3D( double x, double y, double z ) {
     _arr_point[0] = x;
     _arr_point[1] = y;
     _arr_point[2] = z;
@@ -28,31 +28,31 @@ Vec3D Vec3D::operator-() const {
     return Vec3D(-x(), -y(), -z());
 }
 
-bool Vec3D::operator==(const Vec3D &vec) const {
+bool Vec3D::operator==( const Vec3D &vec ) const {
     Vec3D diff = *this - vec;
     return diff.sqrAbs() < Consts::EPS;
 }
 
-bool Vec3D::operator!=(const Vec3D &vec) const {
+bool Vec3D::operator!=( const Vec3D &vec ) const {
     return !(*this == vec);
 }
 
 // Operations with Vec3D
-Vec3D Vec3D::operator+(const Vec3D &vec) const {
+Vec3D Vec3D::operator+( const Vec3D &vec ) const {
     return Vec3D(x() + vec.x(), y() + vec.y(), z() + vec.z());
 }
 
-Vec3D Vec3D::operator-(const Vec3D &vec) const {
+Vec3D Vec3D::operator-( const Vec3D &vec ) const {
     return Vec3D(x() - vec.x(), y() - vec.y(), z() - vec.z());
 }
 
-Vec3D Vec3D::operator*(double number) const {
+Vec3D Vec3D::operator*( double number ) const {
     return Vec3D(x() * number, y() * number, z() * number);
 }
 
-Vec3D Vec3D::operator/(double number) const {
+Vec3D Vec3D::operator/( double number ) const {
     if(std::abs(number) > Consts::EPS)
-        return Vec3D(x() / number, y() / number, z() / number);
+        return Vec3D( x() / number, y() / number, z() / number );
     else
         throw std::domain_error{"Vec3D::operator/(double number): division by zero"};
 }
@@ -63,32 +63,32 @@ double Vec3D::sqrAbs() const {
 }
 
 double Vec3D::abs() const {
-    return std::sqrt(sqrAbs());
+    return std::sqrt( sqrAbs() );
 }
 
 Vec3D Vec3D::normalized() const {
     double vecAbs = abs();
     if(vecAbs > Consts::EPS)
-        return Vec3D(*this)/abs();
+        return Vec3D( *this )/abs();
     else
         return Vec3D(0);
 }
 
-double Vec3D::dot(const Vec3D &vec) const {
+double Vec3D::dot( const Vec3D &vec ) const {
     return x()*vec.x() + y()*vec.y() + z()*vec.z();
 }
 
-Vec3D Vec3D::cross(const Vec3D &vec) const {
+Vec3D Vec3D::cross( const Vec3D &vec ) const {
     return Vec3D(y()*vec.z() - z()*vec.y(),
                  z()*vec.x() - x()*vec.z(),
                  x()*vec.y() - y()*vec.x());
 }
 
 Vec3D Vec3D::Random() {
-    return Vec3D((double) rand() / RAND_MAX, (double) rand() / RAND_MAX, (double) rand() / RAND_MAX);
+    return Vec3D( static_cast<double>(rand()) / RAND_MAX, static_cast<double>(rand()) / RAND_MAX, static_cast<double>(rand()) / RAND_MAX);
 }
 
-bool Vec3D::isNear(double a, double b) {
+bool Vec3D::isNear( double a, double b ) {
     return std::abs(a - b) < Consts::EPS;
 }
 

@@ -78,6 +78,10 @@ bool Vec2D::isNear( double a, double b ) {
     return std::abs(a - b) < Consts::EPS;
 }
 
+Vec2D Vec2D::Random() {
+    return Vec2D( static_cast<double>(rand()) / RAND_MAX, static_cast<double>(rand()) / RAND_MAX );
+}
+
 void Vec2D::test() {
     Vec2D a( 1, 2 );
     Vec2D b( 3, 4 );
