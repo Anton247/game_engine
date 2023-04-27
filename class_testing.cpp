@@ -1,5 +1,6 @@
 #include "engine/math/Vec2D.h"
 #include "engine/math/Vec3D.h"
+#include "engine/math/Vec4D.h"
 #include <iostream>
 
 using namespace std;
@@ -13,7 +14,9 @@ int main(){
 
     cout<<"Test: Vec3D - START\n";
     Vec3D::test();
-    cout<<"Test: Vec3D - OK\n";
+    cout<<"Test: Vec4D - OK\n";
 
-
+    cout<<"Test: Vec4D - START\n";
+    Vec4D::test();
+    cout<<"Test: Vec4D - OK\n";
 }
