@@ -17,6 +17,9 @@ class Vec3D final {
         [[nodiscard]] double y() const { return _arr_point[1]; }
         [[nodiscard]] double z() const { return _arr_point[2]; }
 
+        // Accessing elements
+        double operator[]( size_t d );
+
         [[nodiscard]] Vec3D operator-() const;
 
         // Boolean operations

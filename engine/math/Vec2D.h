@@ -16,14 +16,14 @@ class Vec2D final {
         [[nodiscard]] double x() const { return _arr_point[0]; }
         [[nodiscard]] double y() const { return _arr_point[1]; }
 
+        // Accessing elements
+        double operator[]( size_t d );
+
         [[nodiscard]] Vec2D operator-() const;
 
         // Boolean operations
         bool operator==( const Vec2D &vec ) const;
         bool operator!=( const Vec2D &vec ) const;
-
-        // Accessing elements
-        double operator[]( size_t d );
 
         [[nodiscard]] Vec2D operator+( const Vec2D &vec ) const;
         [[nodiscard]] Vec2D operator-( const Vec2D &vec ) const;
