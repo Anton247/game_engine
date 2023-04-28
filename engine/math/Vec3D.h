@@ -18,7 +18,7 @@ class Vec3D final {
         [[nodiscard]] double z() const { return _arr_point[2]; }
 
         // Accessing elements
-        double operator[]( size_t d );
+        double& operator[]( size_t d );
 
         [[nodiscard]] Vec3D operator-() const;
 

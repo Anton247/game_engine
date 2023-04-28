@@ -18,6 +18,9 @@ class Vec4D final {
         [[nodiscard]] double z() const { return _arr_point[2]; }
         [[nodiscard]] double w() const { return _arr_point[3]; }
 
+        // Accessing elements
+        double& operator[]( size_t d );
+
         [[nodiscard]] Vec4D operator-() const;
 
         // Boolean operations

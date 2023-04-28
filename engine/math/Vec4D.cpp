@@ -5,6 +5,13 @@
 #include "Vec4D.h"
 #include "../Consts.h"
 
+double& Vec4D::operator[]( size_t d ){
+    if( d < Vec4D::dimension )
+        return this->_arr_point[d];
+    else
+        throw std::domain_error{"Vec4D::operator[](size_t number): the index of the element is greater than the dimension of the vector"};
+}
+
 Vec4D::Vec4D( double x, double y, double z, double w ) {
     _arr_point[0] = x;
     _arr_point[1] = y;

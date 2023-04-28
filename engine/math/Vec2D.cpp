@@ -27,7 +27,7 @@ bool Vec2D::operator!=( const Vec2D &vec ) const {
     return !( *this == vec );
 }
 
-double Vec2D::operator[]( size_t d ){
+double& Vec2D::operator[]( size_t d ){
     if( d < Vec2D::dimension )
         return this->_arr_point[d];
     else

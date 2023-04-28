@@ -17,7 +17,7 @@ Vec3D::Vec3D( double x, double y, double z ) {
     _arr_point[2] = z;
 }
 
-double Vec3D::operator[]( size_t d ){
+double& Vec3D::operator[]( size_t d ){
     if( d < Vec3D::dimension )
         return this->_arr_point[d];
     else
