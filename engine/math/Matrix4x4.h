@@ -7,33 +7,56 @@
 #include "Vec3D.h"
 
 class Matrix4x4 final {
-    public:
-        Matrix4x4() = default;
+private:
+    std::array<std::array<double, 4>, 4> _arr{};
 
-        Matrix4x4 &operator=( const Matrix4x4 &matrix4X4 ) = default;
+public:
+    Matrix4x4() = default;
 
-        [[nodiscard]] Matrix4x4 operator*( const Matrix4x4 &matrix4X4 ) const;
-        [[nodiscard]] Vec4D operator*( const Vec4D &point4D ) const;
+    Matrix4x4 &operator=(const Matrix4x4 &matrix4X4) = default;
 
-        // Any useful matrix (static methods)
-        Matrix4x4 static Identity(); // единичная матрица
-        Matrix4x4 static Zero(); // нулевая матрица
-        Matrix4x4 static Constant( double value ); // матрица из чисел
-        Matrix4x4 static Scale( const Vec3D &factor );
-        Matrix4x4 static Translation( const Vec3D &v );
-        Matrix4x4 static Rotation( const Vec3D &r );
-        Matrix4x4 static RotationX( double rx );
-        Matrix4x4 static RotationY( double ry );
-        Matrix4x4 static RotationZ( double rz );
-        Matrix4x4 static Rotation( const Vec3D &v, double rv );
+    [[nodiscard]] Matrix4x4 operator*(const Matrix4x4 &matrix4X4) const;
 
-        static void test();
+    [[nodiscard]] Vec4D operator*(const Vec4D &point4D) const;
 
-    private:
-        static const unsigned short dimension = 4;
-        std::array<std::array<double, dimension>, dimension> _arr{};
+    [[nodiscard]] Vec3D operator*(const Vec3D &vec) const;
 
-        static bool isNear( double a, double b );
+    [[nodiscard]] Vec3D x() const;
+
+    [[nodiscard]] Vec3D y() const;
+
+    [[nodiscard]] Vec3D z() const;
+
+    [[nodiscard]] Vec3D w() const;
+
+
+    // Any useful matrix (static methods)
+    Matrix4x4 static Identity();
+
+    Matrix4x4 static Zero();
+
+    Matrix4x4 static Constant(double value);
+
+    Matrix4x4 static Scale(const Vec3D &factor);
+
+    Matrix4x4 static Translation(const Vec3D &v);
+
+    Matrix4x4 static Rotation(const Vec3D &r);
+
+    Matrix4x4 static RotationX(double rx);
+
+    Matrix4x4 static RotationY(double ry);
+
+    Matrix4x4 static RotationZ(double rz);
+
+    Matrix4x4 static Rotation(const Vec3D &v, double rv);
+
+    Matrix4x4 static View(const Matrix4x4 &transformMatrix);
+
+    Matrix4x4 static Projection(double fov = 90.0, double aspect = 1.0, double ZNear = 1.0, double ZFar = 10.0);
+
+    Matrix4x4 static ScreenSpace(int width, int height);
 };
+
 
 #endif //ENGINE_MATRIX4X4_H
