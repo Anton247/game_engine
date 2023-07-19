@@ -2,7 +2,6 @@
 
 #include "Mesh.h"
 #include "utils/ResourceManager.h"
-#include "io/Screen.h"
 
 Mesh &Mesh::operator*=(const Matrix4x4 &matrix4X4) {
     std::vector<Triangle> newTriangles;
